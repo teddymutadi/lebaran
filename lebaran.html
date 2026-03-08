@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ucapan Idhul Fitri 1447 H</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Handlee&family=Sacramento&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Edu+SA+Hand:wght@400..700&display=swap" rel="stylesheet">
+<style>
+
+body{
+margin:0;
+background:white;
+font-family:Arial;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+/* CARD */
+
+.card{
+width:92%;
+max-width:420px;
+height:92vh;
+background:#fff4b8;
+border-radius:22px;
+box-shadow:0 12px 30px rgba(0,0,0,0.18);
+overflow:hidden;
+}
+
+/* HALAMAN */
+
+.halaman{
+display:none;
+height:100%;
+padding:28px;
+box-sizing:border-box;
+text-align:center;
+flex-direction:column;
+justify-content:center;
+}
+
+.aktif{
+display:flex;
+}
+
+/* LABEL NAMA */
+
+.labelNama{
+font-family:'Handlee';
+font-size:26px;
+display:inline-block;
+padding:10px 18px;
+border-radius:10px;
+background:#fff2a8;
+margin-top:10px;
+}
+
+/* TEKS */
+
+.judul2{
+font-family:'Bubblegum Sans';
+color: green;
+font-size:42px;
+margin:18px 0;
+}
+
+.penulis{
+font-family:'Handlee';
+font-size:20px;
+margin-top:25px;
+}
+
+.arab{
+font-family:'Noto Nastaliq Urdu';
+font-size:28px;
+line-height:2;
+margin:18px 0;
+}
+
+/* TOMBOL */
+
+.tombol{
+margin-top:28px;
+padding:10px 20px;
+border:none;
+background:#f3a300;
+color:white;
+font-size:15px;
+border-radius:25px;
+cursor:pointer;
+box-shadow:0 5px 10px rgba(0,0,0,0.2);
+width:auto;
+align-self:center;
+}
+
+.tombol:hover{
+background:#df9300;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- AUDIO -->
+
+<audio id="musik" autoplay loop>
+<source src="https://teddymutadi.github.io/musik/takbiran.mp3" type="audio/mpeg">
+</audio>
+
+<!--
+Untuk mengganti musik:
+Ganti URL MP3 di atas
+-->
+
+<div class="card">
+
+<!-- HALAMAN 1 -->
+
+<div id="hal1" class="halaman aktif">
+<center>
+<img src="https://teddymutadi.github.io/album/teddybedug.png" width="250" height="275">
+</center>
+<h3>Kepada Yth:</h3>
+
+<div id="namaTujuan" class="labelNama"></div>
+
+<button class="tombol" onclick="nextHal(2)">
+UCAPAN LEBARAN
+</button>
+
+</div>
+
+<!-- HALAMAN 2 -->
+
+<div id="hal2" class="halaman">
+<right>
+<img src="https://teddymutadi.github.io/album/ketupat.png" width="100" height="100">
+</right>
+<p>Di hari yang fitri ini, ijinkan kami mengucapkan:</p>
+
+<div class="judul2">
+Selamat Hari Raya Idhul Fitri 1447 H
+</div>
+
+<p>
+Mohon ma’af lahir dan batin.<br>
+Semoga Allah menerima amal ibadah kita semua.
+</p>
+
+<div class="penulis">
+Dr. H. Mutadi, M. Ed.-
+Sekeluarga
+</div>
+
+<button class="tombol" onclick="nextHal(3)">
+DO'A UNTUKMU
+</button>
+
+</div>
+
+<!-- HALAMAN 3 -->
+
+<div id="hal3" class="halaman">
+
+<h2>Do'a Terindah Untukmu</h2>
+
+<div class="arab">
+تَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ تَقَبَّلْ يَا كَرِيمُ
+وَجَعَلَنَا اللَّهُ وَإِيَّاكُمْ مِنَ الْعَائِدِينَ
+وَالْفَائِزِينَ وَالْمَقْبُولِينَ
+كُلُّ عَامٍ وَأَنْتُمْ بِخَيْرٍ
+</div>
+
+<p>
+“Semoga Allah menerima (amal ibadah) kami dan kamu,
+Wahai Allah Yang Maha Mulia, terimalah!
+Dan semoga Allah menjadikan kami dan kamu termasuk
+orang-orang yang kembali dan orang-orang yang menang
+serta diterima amal ibadahnya.
+Setiap tahun semoga kamu semua senantiasa dalam kebaikan.”
+</p>
+
+<button class="tombol" onclick="nextHal(1)">
+KEMBALI
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* pindah halaman */
+
+function nextHal(n){
+
+document.querySelectorAll('.halaman').forEach(h=>{
+h.classList.remove('aktif')
+})
+
+document.getElementById('hal'+n).classList.add('aktif')
+
+}
+
+/* ambil nama dari URL */
+
+const params=new URLSearchParams(window.location.search)
+const nama=params.get("kepada")
+
+if(nama){
+document.getElementById("namaTujuan").innerText=nama
+}else{
+document.getElementById("namaTujuan").innerText="Bapak/Ibu, Saudara/i"
+}
+
+/* memastikan musik berjalan */
+
+window.addEventListener("click",function(){
+document.getElementById("musik").play()
+})
+
+</script>
+
+</body>
+</html>
